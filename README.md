@@ -78,7 +78,7 @@ Project pages use hash URLs, for example `.../Santosh_Portfolio/#/project/datasa
 **Optional:** name the repository `santosh-4788.github.io` to serve the site at `https://santosh-4788.github.io/`.
 
 ### Link previews
-`og:image` in `index.html` is relative. Some platforms (LinkedIn, WhatsApp) need an absolute URL. Once the site is live, change it to `https://santosh-4788.github.io/Santosh_Portfolio/og-image.jpg`.
+`og:image` and `og:url` in `index.html` point at the live site, so WhatsApp and LinkedIn previews show the image.
 
 ## Credits
 The design is original. Fonts are Inter and Plus Jakarta Sans (SIL Open Font License), bundled through Fontsource.
