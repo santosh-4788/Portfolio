@@ -35,6 +35,7 @@ export default function Hero({ onNavigate, onOpenProject }) {
             <div className="hero-social">
               {profile.github && <a className="icon-link" href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Icon name="github" /></a>}
               {profile.linkedin && <a className="icon-link" href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" /></a>}
+              {profile.whatsapp && <a className="icon-link icon-wa" href={`https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(profile.whatsappMessage || '')}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><Icon name="whatsapp" /></a>}
             </div>
           </div>
         </div>

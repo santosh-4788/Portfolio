@@ -926,3 +926,17 @@ h3, h4 { font-weight: 700; }
   .status, .svc .status, .hero-badge .status { font-size: 12px; }
   .stat span { font-size: 12.5px; }
 }
+
+/* Contact: 3-up grid with brand-coloured WhatsApp and LinkedIn cards */
+.contact-grid { grid-template-columns: repeat(3, 1fr); }
+.c-card.c-wa .p-ic { color: #fff; background: #25d366; border-color: #25d366; box-shadow: 0 10px 24px -10px rgba(37, 211, 102, .8); }
+.c-card.c-li .p-ic { color: #fff; background: #0a66c2; border-color: #0a66c2; box-shadow: 0 10px 24px -10px rgba(10, 102, 194, .8); }
+a.c-card.c-wa:hover { border-color: rgba(37, 211, 102, .6); }
+a.c-card.c-li:hover { border-color: rgba(10, 102, 194, .7); }
+a.c-card b { display: inline-flex; align-items: center; gap: 6px; }
+a.c-card[target='_blank'] b::after { content: "↗"; font-size: 14px; opacity: .6; transition: transform .25s var(--ease), opacity .25s; }
+a.c-card[target='_blank']:hover b::after { opacity: 1; transform: translate(2px, -2px); }
+@media (max-width: 1000px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .contact-grid { grid-template-columns: 1fr; } }
+
+.icon-link.icon-wa:hover { color: #25d366; border-color: #25d366; }

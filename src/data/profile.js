@@ -11,7 +11,9 @@ export const profile = {
   email: 'santoshr8874@gmail.com',
   phone: '+91 80800 80404',
   github: 'https://github.com/santosh-4788',
-  linkedin: '', // add your LinkedIn URL to show it, e.g. 'https://www.linkedin.com/in/your-handle'
+  linkedin: 'https://www.linkedin.com/in/santosh-yadav-9290921ab',
+  whatsapp: '918080080404', // country code + number, no '+' or spaces (used for wa.me links)
+  whatsappMessage: 'Hi Santosh, I saw your portfolio and would like to connect.',
   resume: 'Santosh_Yadav_Resume.pdf',
   intro:
     'I own production support for business-critical insurance applications and build the internal platforms that remove manual work around them. My strongest ground is where the business problem meets the database: SQL Server, reporting and data quality.',

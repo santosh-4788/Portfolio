@@ -3,13 +3,17 @@ import { Reveal } from '../components/ui.jsx'
 import { profile } from '../data/profile.js'
 
 export default function Contact() {
+  const wa = profile.whatsapp
+    ? `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(profile.whatsappMessage || '')}`
+    : null
   const cards = [
     { icon: 'mail', label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
+    wa && { icon: 'whatsapp', label: 'WhatsApp', value: 'Chat on WhatsApp', href: wa, ext: true, brand: 'wa' },
+    profile.linkedin && { icon: 'linkedin', label: 'LinkedIn', value: 'View my profile', href: profile.linkedin, ext: true, brand: 'li' },
     { icon: 'phone', label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}` },
     profile.github && { icon: 'github', label: 'GitHub', value: profile.github.replace(/^https?:\/\/(www\.)?/, ''), href: profile.github, ext: true },
-    profile.linkedin && { icon: 'linkedin', label: 'LinkedIn', value: profile.linkedin.replace(/^https?:\/\/(www\.)?/, ''), href: profile.linkedin, ext: true },
     { icon: 'pin', label: 'Location', value: profile.location },
-  ].filter(Boolean).slice(0, 4)
+  ].filter(Boolean)
 
   return (
     <section className="section" id="contact">
@@ -23,9 +27,10 @@ export default function Contact() {
           <div className="contact-grid">
             {cards.map((c) => {
               const inner = <><span className="p-ic"><Icon name={c.icon} /></span><span>{c.label}</span><b>{c.value}</b></>
+              const cls = `c-card${c.brand ? ` c-${c.brand}` : ''}`
               return c.href
-                ? <a key={c.label} className="c-card" href={c.href} {...(c.ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{inner}</a>
-                : <div key={c.label} className="c-card">{inner}</div>
+                ? <a key={c.label} className={cls} href={c.href} aria-label={`${c.label}: ${c.value}`} {...(c.ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{inner}</a>
+                : <div key={c.label} className={cls}>{inner}</div>
             })}
           </div>
         </Reveal>
