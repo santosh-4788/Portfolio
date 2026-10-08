@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { Background, BackToTop, Footer, Nav, NAV } from './components/Chrome.jsx'
 import About from './sections/About.jsx'
 import Contact from './sections/Contact.jsx'
@@ -33,14 +33,22 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const onHash = () => {
-      const id = projectFromHash()
-      setProjectId(id)
-      if (id) window.scrollTo(0, 0)
-    }
+    const onHash = () => setProjectId(projectFromHash())
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
+
+  // Open every project at the top. This runs after the detail page has rendered, and it
+  // bypasses the CSS smooth scrolling: a smooth scroll that starts deep in the home page
+  // gets clamped to the end of the shorter detail page and cancelled on mobile browsers.
+  useLayoutEffect(() => {
+    if (!projectId) return
+    const root = document.documentElement
+    const prev = root.style.scrollBehavior
+    root.style.scrollBehavior = 'auto'
+    window.scrollTo(0, 0)
+    root.style.scrollBehavior = prev
+  }, [projectId])
 
   // Scroll to a section once the home page is rendered.
   useEffect(() => {
@@ -76,7 +84,6 @@ export default function App() {
   const openProject = useCallback((id) => {
     history.pushState(null, '', `#/project/${id}`)
     setProjectId(id)
-    window.scrollTo(0, 0)
   }, [])
 
   return (
