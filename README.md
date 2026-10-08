@@ -46,7 +46,7 @@ Portfolio/
 ## Deploy to GitHub Pages (free)
 
 ### 1. Create the repository
-On https://github.com/new, create a **public** repository (this one is `Santosh_Portfolio`). Don't add a README, .gitignore or licence.
+On https://github.com/new, create a **public** repository (this one is `Portfolio`). Don't add a README, .gitignore or licence.
 
 ### 2. Push
 
@@ -58,7 +58,7 @@ git config user.email "santoshr8874@gmail.com"
 git add .
 git commit -m "Initial portfolio"
 git branch -M main
-git remote add origin https://github.com/santosh-4788/Santosh_Portfolio.git
+git remote add origin https://github.com/santosh-4788/Portfolio.git
 git push -u origin main
 ```
 
@@ -70,10 +70,10 @@ Repository → **Settings** → **Pages** → *Build and deployment* → **Sourc
 The workflow in `.github/workflows/deploy.yml` runs on every push to `main`. It installs, builds and publishes `dist/`. Progress shows on the **Actions** tab. After about a minute the site is live at:
 
 ```
-https://santosh-4788.github.io/Santosh_Portfolio/
+https://santosh-4788.github.io/Portfolio/
 ```
 
-Project pages use hash URLs, for example `.../Santosh_Portfolio/#/project/datasanity`, and all asset paths are relative. That means the site works under any repository name, and a page refresh never returns a 404.
+Project pages use hash URLs, for example `.../Portfolio/#/project/datasanity`, and all asset paths are relative. That means the site works under any repository name, and a page refresh never returns a 404.
 
 **Optional:** name the repository `santosh-4788.github.io` to serve the site at `https://santosh-4788.github.io/`.
 
